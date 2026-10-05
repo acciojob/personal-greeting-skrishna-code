@@ -1,13 +1,25 @@
-
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [name, setName] = useState("");
 
-export default App
+  return (
+    <div className="app">
+      <h1>Personalized Greeting</h1>
+
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      {name.trim() !== "" && (
+        <h2>Hello, {name}!</h2>
+      )}
+    </div>
+  );
+};
+
+export default App;
